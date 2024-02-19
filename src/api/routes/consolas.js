@@ -1,4 +1,7 @@
-const uploadConsolas = require("../../middlewares/consolasFile");
+const createStorage = require("../../middlewares/fileUpload");
+
+const uploadConsolas = createStorage("consolas");
+
 const {
   getConsolas,
   getConsolaById,

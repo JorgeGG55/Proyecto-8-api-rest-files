@@ -1,4 +1,7 @@
-const uploadUsuarios = require("../../middlewares/usuariosFile");
+const createStorage = require("../../middlewares/fileUpload");
+
+const uploadUsuarios = createStorage("usuarios");
+
 const {
   getUsuarios,
   getUsuarioById,

@@ -1,4 +1,7 @@
-const upload = require("../../middlewares/videojuegosFile");
+const createStorage = require("../../middlewares/fileUpload");
+
+const uploadVideojuegos = createStorage("videojuegos");
+
 const {
   getVideojuegos,
   getVideojuegoById,
@@ -9,7 +12,11 @@ const videojuegosRouter = require("express").Router();
 
 videojuegosRouter.get("/", getVideojuegos);
 videojuegosRouter.get("/:id", getVideojuegoById);
-videojuegosRouter.post("/", upload.fields([{ name: "img" }]), postVideojuego);
+videojuegosRouter.post(
+  "/",
+  uploadVideojuegos.fields([{ name: "img" }]),
+  postVideojuego
+);
 videojuegosRouter.delete("/:id", deleteVideojuego);
 
 module.exports = videojuegosRouter;
